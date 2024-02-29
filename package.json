@@ -1,0 +1,16 @@
+{
+  "name": "centro_down_back-end",
+  "version": "1.0.0",
+  "description": "Repositorio donde se almacena el servidor de el sistema de administración de alumnos del centro Down. En el archivo Readme encontrarás instrucciones de uso, como correr el proyecto y lo necesario en cuanto a la parte del desarrollo del mismo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.2"
+  }
+}
