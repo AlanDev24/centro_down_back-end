@@ -2,7 +2,7 @@
 const accesoDatos = require('../data/user');
 
 async function eliminarUsuario(req, res) {
-  const correoUsuarioEliminar = req.params.correo;
+  const correoUsuarioEliminar = req.body.correo;
 
   try {
     await accesoDatos.eliminarUsuarioPorCorreo(correoUsuarioEliminar);
@@ -20,7 +20,7 @@ async function authUser(req,res){
   try {
     const token = await accesoDatos.autenticarUsuario(correo,pass);
     if(token){
-      res.status(200).json({ mensaje: 'Autenticación correcta', body: token });
+      res.status(200).json({ mensaje: 'Autenticación correcta', body: {token:token,correo:correo} });
     }else{
       res.status(400).json({ mensaje: 'fail' });
     }

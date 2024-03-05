@@ -13,8 +13,9 @@ router
 
 router.use(verificarToken)
 
+
 router
-.route('/:correo')
+.route('/')
 .delete(userController.eliminarUsuario);
 
 
