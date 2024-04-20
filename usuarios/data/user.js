@@ -1,5 +1,5 @@
 const Usuario = require('../models/user');
-const tokenc = require("../utils/token");
+const tokenc = require("../../utils/token");
 
 async function eliminarUsuarioPorCorreo(correo) {
   try {

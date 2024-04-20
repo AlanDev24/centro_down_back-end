@@ -1,18 +1,17 @@
 // usuarioModel.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../utils/db');
+const sequelize = require('../../utils/db');
 
-const Usuario = sequelize.define('Usuario', {
-  nombre: {
-    type: DataTypes.STRING,
+const Nota = sequelize.define('Nota', {
+  maestro: {
+    type: DataTypes.INTEGER,
     allowNull: false
   },
-  correo: {
-    type: DataTypes.STRING,
+  alumno: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-    unique: true
   },
-  password: {
+  cuerpo: {
     type: DataTypes.STRING,
     allowNull: false
   },
@@ -22,8 +21,8 @@ const Usuario = sequelize.define('Usuario', {
     defaultValue: DataTypes.NOW
   }
 }, {
-  tableName: 'usuarios', // Nombre de la tabla en la base de datos
+  tableName: 'notas', // Nombre de la tabla en la base de datos
   updatedAt: false // Si no tienes la columna 'updatedAt', puedes deshabilitarla
 });
 
-module.exports = Usuario;
+module.exports = Nota;
