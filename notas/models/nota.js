@@ -1,18 +1,30 @@
-// usuarioModel.js
 const { DataTypes, INET, INTEGER } = require('sequelize');
 const sequelize = require('../../utils/db');
+const Alumno = require('./alumnoModel'); // Importar el modelo de Alumno
+const Maestro = require('./maestroModel'); // Importar el modelo de Maestro
 
 const Nota = sequelize.define('Nota', {
-  id:{
+  idNota:{
     autoIncrement: true,
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
+    field: 'id_nota'
   },
-  maestro: {
-    type: DataTypes.INTEGER
+  idMaestro: { // Cambiar a 'maestroId' para representar la clave foránea
+    type: DataTypes.INTEGER,
+    references: {
+      model: Maestro, // Hace referencia al modelo de Maestro
+      key: 'id_maestro' // Columna de la tabla Maestro que se está referenciando
+    },
+    field: 'id_maestro'
   },
-  alumno: {
-    type: DataTypes.INTEGER
+  idAlumno: { // Cambiar a 'alumnoId' para representar la clave foránea
+    type: DataTypes.INTEGER,
+    references: {
+      model: Alumno, // Hace referencia al modelo de Alumno
+      key: 'id_alumnno' // Columna de la tabla Alumno que se está referenciando
+    },
+    field: 'id_alumno'
   },
   cuerpo: {
     type: DataTypes.STRING
@@ -26,5 +38,9 @@ const Nota = sequelize.define('Nota', {
   tableName: 'notas', // Nombre de la tabla en la base de datos
   updatedAt: false // Si no tienes la columna 'updatedAt', puedes deshabilitarla
 });
+
+// Definir las relaciones entre los modelos
+Nota.belongsTo(Maestro, { foreignKey: 'id_maestro', as: 'maestro' });
+Nota.belongsTo(Alumno, { foreignKey: 'id_alumno', as: 'alumno' });
 
 module.exports = Nota;
