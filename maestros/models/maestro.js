@@ -2,28 +2,30 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../utils/db');
 
-const Usuario = sequelize.define('Usuario', {
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  correo: {
+const Maestro = sequelize.define('Maestro', {
+  idMaestro: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
+    primaryKey: true,
+    field: 'id_maestro'
   },
   password: {
     type: DataTypes.STRING,
     allowNull: false
   },
+  imagenPerfil: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    field: 'imagen_perfil' // Esta línea especifica el nombre del campo en la base de datos
+  },  
   createdAt: {
     type: DataTypes.DATE,
     allowNull: false,
     defaultValue: DataTypes.NOW
   }
 }, {
-  tableName: 'usuarios', // Nombre de la tabla en la base de datos
+  tableName: 'maestros', // Nombre de la tabla en la base de datos
   updatedAt: false // Si no tienes la columna 'updatedAt', puedes deshabilitarla
 });
 
-module.exports = Usuario;
+module.exports = Maestro;

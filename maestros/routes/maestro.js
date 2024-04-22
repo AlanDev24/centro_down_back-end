@@ -1,5 +1,5 @@
 const express = require('express');
-const userController = require('../controllers/user');
+const maestroController = require('../controllers/maestro');
 const { verificarToken } = require('../../utils/token');
 const router = express.Router();
 
@@ -8,15 +8,7 @@ const router = express.Router();
 
 router
 .route("/")
-.post(userController.authUser);
-
-
-router.use(verificarToken)
-
-
-router
-.route('/')
-.delete(userController.eliminarUsuario);
+.post(maestroController.authUser);
 
 
 module.exports = router;

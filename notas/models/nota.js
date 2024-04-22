@@ -1,19 +1,21 @@
 // usuarioModel.js
-const { DataTypes } = require('sequelize');
+const { DataTypes, INET, INTEGER } = require('sequelize');
 const sequelize = require('../../utils/db');
 
 const Nota = sequelize.define('Nota', {
-  maestro: {
+  id:{
+    autoIncrement: true,
     type: DataTypes.INTEGER,
-    allowNull: false
+    primaryKey: true
+  },
+  maestro: {
+    type: DataTypes.INTEGER
   },
   alumno: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
+    type: DataTypes.INTEGER
   },
   cuerpo: {
-    type: DataTypes.STRING,
-    allowNull: false
+    type: DataTypes.STRING
   },
   createdAt: {
     type: DataTypes.DATE,
