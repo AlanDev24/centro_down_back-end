@@ -1,7 +1,7 @@
 const { DataTypes, INET, INTEGER } = require('sequelize');
 const sequelize = require('../../utils/db');
-const Alumno = require('./alumnoModel'); // Importar el modelo de Alumno
-const Maestro = require('./maestroModel'); // Importar el modelo de Maestro
+const Alumno = require('../../alumnos/models/alumno'); // Importar el modelo de Alumno
+const Maestro = require('../../maestros/models/maestro'); // Importar el modelo de Maestro
 
 const Nota = sequelize.define('Nota', {
   idNota:{
