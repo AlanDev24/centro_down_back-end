@@ -4,12 +4,8 @@ const tokenc = require("../../utils/token");
 const crearNota = async ( maestro, alumno, cuerpo )=> {
 
     try {
-        console.log(maestro)
-        console.log(alumno)
-        console.log(cuerpo)
-        const nuevaNota = await Nota.create( {maestro, alumno, cuerpo });
+        const nuevaNota = await Nota.create( {idMaestro:maestro, idAlumno:alumno, cuerpo });
         return nuevaNota;
-
     } catch (error) {
         console.log(error);
     }

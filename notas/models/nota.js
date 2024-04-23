@@ -8,7 +8,7 @@ const Nota = sequelize.define('Nota', {
     autoIncrement: true,
     type: DataTypes.INTEGER,
     primaryKey: true,
-    field: 'id_nota'
+    field: 'id_notas'
   },
   idMaestro: { // Cambiar a 'maestroId' para representar la clave foránea
     type: DataTypes.INTEGER,
